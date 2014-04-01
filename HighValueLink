@@ -1,0 +1,65 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+/**
+ *
+ * @author Vishal
+ */
+public class HighValueLink {
+
+    public static void main(String[] args) throws IOException, JSONException {
+        // TODO code application logic here
+        String url = "https://api-ssl.bitly.com/v3/highvalue?access_token=cd46ad789737a5ee67fe2f62531a4e8ca2a53d8e&limit=10";
+
+        String socialT = "https://api-ssl.bitly.com/v3/link/social?access_token=cd46ad789737a5ee67fe2f62531a4e8ca2a53d8e&link=";
+
+        URL oracle = new URL(url);
+        URLConnection yc = oracle.openConnection();
+        BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream()));
+        
+        String JSON_DATA = in.readLine();
+        JSONObject obj = new JSONObject(JSON_DATA);
+
+        JSONObject dataObject = obj.getJSONObject("data");
+        JSONArray data = dataObject.getJSONArray("values");
+
+        URL temp;
+        URLConnection yc2;
+        BufferedReader in2;
+
+        for (int i = 0; i < 10; i++) {
+            
+            String link = (data.getString(i));
+            String social = socialT + link;
+            
+            temp = new URL(social);
+            yc2 = temp.openConnection();
+            in2 = new BufferedReader(new InputStreamReader(yc2.getInputStream()));
+            String social_Data = in2.readLine();
+
+            //System.out.println(link+ " " +social_Data);
+            JSONObject socialObj = new JSONObject(social_Data);
+
+            JSONObject socialObject = socialObj.getJSONObject("data");
+            JSONObject socialData = socialObject.getJSONObject("social_scores");
+
+            String clicks = socialData.getString(link);
+            
+            System.out.println(link+" - "+clicks);
+        }
+
+    }
+
+}
