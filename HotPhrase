@@ -22,15 +22,17 @@ public class HotPhrase {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException, JSONException {
-        // TODO code application logic here
+        //API URL with access token key
         String url = "https://api-ssl.bitly.com/v3/realtime/hot_phrases?access_token=cd46ad789737a5ee67fe2f62531a4e8ca2a53d8e";
         
+        // Read URL and create connection
         URL oracle = new URL(url);
         URLConnection yc = oracle.openConnection();
         BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream()));
         String JSON_DATA = in.readLine();
         JSONObject obj = new JSONObject(JSON_DATA);
 
+        // Read returned result from API suing JSON
         JSONObject dataObject = obj.getJSONObject("data"); 
         JSONArray data = dataObject.getJSONArray("phrases");
         int n = data.length();
