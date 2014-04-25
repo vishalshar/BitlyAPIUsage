@@ -28,6 +28,7 @@ Use the high value endpoint along with other parts of the bitly API to return a 
 Below is a sample of what the output should look like:
 
 http://bit.ly/15clwC2 - 432
+
 http://bit.ly/WT7zYR - 53
 http://bit.ly/15BC7mu - 143
 http://bit.ly/1eNqttq - 43
