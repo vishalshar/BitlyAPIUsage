@@ -13,9 +13,13 @@ Query this endpoint to get the current hot phrases and return the top 5 phrases 
 Below is a sample of what the output should look like (your phrases will be different but format should be the same):
 
 breaking bad
+
 miley cyrus
+
 government shutdown
+
 injury status of starting cornerbacks rashean mathis and chris houston
+
 key questions
 
 
@@ -30,13 +34,21 @@ Below is a sample of what the output should look like:
 http://bit.ly/15clwC2 - 432
 
 http://bit.ly/WT7zYR - 53
+
 http://bit.ly/15BC7mu - 143
+
 http://bit.ly/1eNqttq - 43
+
 http://bit.ly/16qV1yX - 98
+
 http://bit.ly/yGi1de - 483
+
 http://bit.ly/1beexgs - 992
+
 http://bit.ly/1bWh15V - 102
+
 http://bit.ly/1bHafRm - 896
+
 http://bit.ly/162Stn - 423
 
 Again the specific links and counts you return will be different but the format should be the same.
